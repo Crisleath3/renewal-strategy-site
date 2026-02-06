@@ -233,4 +233,153 @@ h1{margin:0;font-size:clamp(38px, 4.2vw, 56px);line-height:1.05;letter-spacing:-
   font-size:13px;
   line-height:1.6;
 }
+/* Paste this at the very end of styles.css */
+/* Executive polish, stronger flow, mobile safety, improved Leadership section */
+
+body{
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+img{
+  max-width:100%;
+}
+
+.container,.panel,.hero-card,.founder, .founder *{
+  min-width:0;
+}
+
+/* Improve hero typography on small screens */
+@media (max-width: 520px){
+  h1{
+    font-size:34px;
+    line-height:1.08;
+  }
+  .lead{
+    font-size:16px;
+  }
+  .hero-left{
+    padding:30px 22px 26px;
+  }
+}
+
+/* Navigation dropdown behaves better on mobile */
+@media (max-width: 980px){
+  .nav{
+    gap:6px;
+  }
+  .navdrop{
+    position:fixed;
+    left:24px;
+    right:24px;
+    top:78px;
+    min-width:unset;
+  }
+}
+
+/* Services grid is currently 2 columns, but you have 3 panels.
+   This makes it a clean 3 up layout on desktop, 1 up on mobile. */
+.split{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 1100px){
+  .split{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Leadership upgrade without changing your design language */
+#leadership .sub{
+  max-width:84ch;
+}
+
+.founder{
+  align-items:start;
+  gap:26px;
+}
+
+#leadership .founder-photo{
+  max-width:520px;
+  aspect-ratio:4 / 5;
+}
+
+#leadership .title{
+  color:var(--muted);
+  letter-spacing:.18em;
+  font-weight:950;
+  margin-bottom:10px;
+}
+
+#leadership h3{
+  font-size:clamp(24px, 2.4vw, 34px);
+  margin:0 0 14px 0;
+}
+
+#leadership p{
+  color:var(--muted);
+  line-height:1.68;
+  font-size:16px;
+}
+
+/* Stronger mission block, more executive feel */
+#leadership .quote{
+  background:linear-gradient(180deg, rgba(199,162,90,.18), rgba(255,255,255,0));
+  border-top:1px solid var(--line);
+  border-left:3px solid rgba(199,162,90,.55);
+  padding:16px 16px 14px;
+  border-radius:18px;
+  color:var(--ink2);
+}
+
+/* Add a premium outcomes block if you include it in HTML */
+.founder-proof{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+
+.founder-proof h4{
+  margin:0 0 10px 0;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink2);
+  font-weight:950;
+}
+
+.founder-proof ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.75;
+  font-weight:650;
+}
+
+.founder-cta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+/* Mobile: keep portrait elegant and avoid huge image pushing copy too far down */
+@media (max-width: 980px){
+  #leadership .founder-photo{
+    max-width:100%;
+    aspect-ratio:auto;
+  }
+  .founder{
+    gap:18px;
+  }
+}
+
+/* Premium spacing, makes sections feel more executive */
+.section{
+  padding:78px 0;
+}
+@media (max-width: 980px){
+  .section{
+    padding:64px 0;
+  }
+}
 
