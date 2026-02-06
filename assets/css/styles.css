@@ -112,3 +112,82 @@ h1{margin:0;font-size:clamp(38px, 4.2vw, 56px);line-height:1.05;letter-spacing:-
 .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start;}
 @media (max-width: 980px){.footer-grid{grid-template-columns:1fr;}}
 .small{font-size:13px;color:var(--muted);font-weight:650;}
+/* Header cleanup and Pillars dropdown */
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+}
+
+.navlink{
+  font-weight:800;
+  color:var(--ink2);
+  padding:10px 12px;
+  border-radius:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.navlink:hover{
+  background:rgba(199,162,90,.14);
+}
+
+.navmenu{
+  position:relative;
+}
+
+.navmenu summary{
+  list-style:none;
+  cursor:pointer;
+}
+
+.navmenu summary::-webkit-details-marker{
+  display:none;
+}
+
+.navmenu summary::after{
+  content:"▾";
+  opacity:.7;
+  font-weight:900;
+}
+
+.navdrop{
+  position:absolute;
+  top:44px;
+  left:0;
+  min-width:280px;
+  padding:10px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.96);
+  box-shadow:var(--shadow);
+  display:grid;
+  gap:6px;
+  z-index:60;
+}
+
+.navdrop a{
+  font-weight:800;
+  color:var(--ink2);
+  padding:10px 12px;
+  border-radius:14px;
+}
+
+.navdrop a:hover{
+  background:rgba(199,162,90,.14);
+}
+
+.navsep{
+  height:1px;
+  background:var(--line);
+  margin:6px 6px;
+}
+
+.navmenu:not([open]) .navdrop{
+  display:none;
+}
+
