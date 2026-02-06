@@ -133,3 +133,22 @@ footer{
   border-top:1px solid var(--line);
   background:#fff;
 }
+.hero{
+  padding:8rem 3rem 6rem;
+  background:linear-gradient(135deg, #eef3f6, #ffffff);
+}
+
+.hero-inner{
+  max-width:900px;
+}
+
+.hero h1{
+  font-size:3.2rem;
+  font-weight:800;
+}
+
+.hero p{
+  font-size:1.15rem;
+  max-width:720px;
+}
+
