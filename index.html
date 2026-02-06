@@ -2,4 +2,688 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renewal Strategy Consulting</title>
+  <meta name="description" content="Corporate luxury Customer Success consulting and tools. Reduce churn, improve forecasting, and build a renewal system that leadership trusts." />
+
+  <style>
+    :root{
+      /* Corporate Luxury Theme */
+      --navy: #07162B;
+      --midnight: #0B1F3B;
+      --platinum: #E7E9EE;
+      --pearl: #F7F8FB;
+      --slate: #223248;
+      --muted: #5E6B7B;
+      --gold: #C9A227;
+      --gold2: #E2C45A;
+      --stroke: rgba(7, 22, 43, 0.12);
+      --glass: rgba(255,255,255,0.72);
+      --shadow: 0 22px 60px rgba(7,22,43,0.18);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1140px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      color: var(--slate);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0.15px;
+      background:
+        radial-gradient(1200px 700px at 14% 8%, rgba(201,162,39,0.14), transparent 60%),
+        radial-gradient(1200px 700px at 84% 10%, rgba(11,31,59,0.18), transparent 62%),
+        linear-gradient(180deg, var(--pearl), #FFFFFF 55%, rgba(231,233,238,0.55));
+    }
+
+    a{ color: inherit; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(247,248,251,0.78);
+      border-bottom: 1px solid rgba(7,22,43,0.08);
+    }
+    .topbar-inner{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 240px;
+    }
+    .mark{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background:
+        radial-gradient(16px 16px at 28% 30%, rgba(226,196,90,0.95), transparent 62%),
+        linear-gradient(135deg, var(--midnight), var(--navy));
+      box-shadow: 0 18px 40px rgba(7,22,43,0.22);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .brand strong{
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .brand span{
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a{
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--slate);
+      padding: 9px 10px;
+      border-radius: 12px;
+    }
+    .nav a:hover{
+      background: rgba(11,31,59,0.06);
+    }
+
+    /* Buttons */
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(7,22,43,0.10);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      white-space: nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      color: #0A0E16;
+      background:
+        radial-gradient(120px 40px at 25% 0%, rgba(255,255,255,0.55), transparent 65%),
+        linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow: 0 22px 55px rgba(201,162,39,0.26);
+      border: 1px solid rgba(201,162,39,0.55);
+    }
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 26px 62px rgba(201,162,39,0.33);
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,0.65);
+      color: var(--navy);
+      border: 1px solid rgba(7,22,43,0.14);
+    }
+    .btn-ghost:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(7,22,43,0.10);
+      background: rgba(255,255,255,0.82);
+    }
+
+    /* Hero */
+    .hero{ padding: 66px 0 14px; }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+    .hero-card{
+      border-radius: var(--radius2);
+      background: var(--glass);
+      border: 1px solid rgba(7,22,43,0.10);
+      box-shadow: var(--shadow);
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(560px 240px at 18% 0%, rgba(201,162,39,0.16), transparent 60%),
+        radial-gradient(640px 280px at 88% 22%, rgba(11,31,59,0.14), transparent 62%);
+      pointer-events: none;
+    }
+    .hero-card > *{ position: relative; }
+
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(7,22,43,0.06);
+      border: 1px solid rgba(7,22,43,0.10);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: var(--navy);
+      width: fit-content;
+    }
+    .kdot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--midnight));
+    }
+
+    h1{
+      margin: 16px 0 12px;
+      font-size: 54px;
+      line-height: 1.05;
+      letter-spacing: -0.9px;
+      color: var(--navy);
+    }
+    @media (max-width: 560px){ h1{ font-size: 40px; } }
+
+    .lead{
+      margin: 0 0 18px;
+      font-size: 18px;
+      color: var(--slate);
+      max-width: 64ch;
+    }
+
+    .hero-points{
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      max-width: 70ch;
+    }
+    .hero-points li{
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--slate);
+      font-size: 14px;
+    }
+    .check{
+      width: 18px;
+      height: 18px;
+      border-radius: 7px;
+      background: rgba(201,162,39,0.18);
+      border: 1px solid rgba(201,162,39,0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      margin-top: 2px;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .micro{
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Side panel */
+    .panel{
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(11,31,59,0.98), rgba(7,22,43,0.98));
+      color: #EEF3FF;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 22px 62px rgba(7,22,43,0.28);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel:before{
+      content:"";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(560px 280px at 80% 18%, rgba(201,162,39,0.18), transparent 60%),
+        radial-gradient(560px 280px at 18% 85%, rgba(255,255,255,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .panel > *{ position: relative; }
+
+    .panel h2{
+      margin: 0 0 10px;
+      font-size: 15px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: rgba(238,243,255,0.92);
+    }
+    .panel p{
+      margin: 0 0 16px;
+      color: rgba(238,243,255,0.78);
+      font-size: 14px;
+    }
+    .statgrid{
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .stat strong{
+      display: block;
+      font-size: 15px;
+      margin-bottom: 3px;
+      color: rgba(238,243,255,0.96);
+    }
+    .stat span{
+      display: block;
+      font-size: 13px;
+      color: rgba(238,243,255,0.72);
+    }
+
+    /* Sections */
+    .section{ padding: 58px 0; }
+    .section h3{
+      font-size: 28px;
+      margin: 0 0 10px;
+      color: var(--navy);
+      letter-spacing: -0.2px;
+    }
+    .sub{
+      margin: 0 0 26px;
+      color: var(--muted);
+      max-width: 74ch;
+      font-size: 15px;
+    }
+
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 980px){ .cards{ grid-template-columns: 1fr; } }
+
+    .card{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 14px 35px rgba(7,22,43,0.10);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:before{
+      content:"";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(320px 170px at 16% 0%, rgba(11,31,59,0.10), transparent 58%),
+        radial-gradient(320px 170px at 90% 30%, rgba(201,162,39,0.12), transparent 58%);
+      pointer-events: none;
+    }
+    .card > *{ position: relative; }
+
+    .label{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(201,162,39,0.14);
+      border: 1px solid rgba(201,162,39,0.26);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .card h4{
+      margin: 12px 0 6px;
+      font-size: 18px;
+      color: var(--navy);
+    }
+    .card p{
+      margin: 0;
+      color: var(--slate);
+      font-size: 14px;
+    }
+    .bullets{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--slate);
+      font-size: 14px;
+    }
+
+    /* Two column content */
+    .two{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 980px){ .two{ grid-template-columns: 1fr; } }
+
+    .box{
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(7,22,43,0.10);
+      box-shadow: 0 16px 45px rgba(7,22,43,0.12);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .box:before{
+      content:"";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(420px 220px at 18% 0%, rgba(201,162,39,0.12), transparent 60%),
+        radial-gradient(420px 220px at 88% 20%, rgba(11,31,59,0.10), transparent 62%);
+      pointer-events: none;
+    }
+    .box > *{ position: relative; }
+    .box h4{ margin: 0 0 8px; color: var(--navy); }
+    .box p{ margin: 0; color: var(--slate); font-size: 14px; }
+
+    /* CTA */
+    .cta{
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(900px 380px at 12% 0%, rgba(201,162,39,0.16), transparent 60%),
+        radial-gradient(900px 380px at 88% 30%, rgba(11,31,59,0.14), transparent 60%),
+        rgba(255,255,255,0.74);
+      border: 1px solid rgba(7,22,43,0.10);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+    @media (max-width: 760px){ .cta{ grid-template-columns: 1fr; } }
+    .cta h3{ margin: 0 0 6px; }
+    .cta p{ margin: 0; color: var(--slate); }
+
+    footer{
+      padding: 44px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .foot{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(7,22,43,0.10);
+      padding-top: 20px;
+    }
+    .fine{ color: rgba(94,107,123,0.95); }
+
+    /* Small utility */
+    .muted{ color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <strong>Renewal Strategy Consulting</strong>
+          <span>Customer Success tools, retention systems, and executive ready outcomes</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Site">
+        <a href="#services">Services</a>
+        <a href="#tools">Tools</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Book a strategy call</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker"><span class="kdot" aria-hidden="true"></span> Corporate luxury consulting for Customer Success</div>
+
+          <h1>Customer Success that drives renewals, expansion, and trust in the forecast.</h1>
+
+          <p class="lead">
+            If leadership is asking for forecast confidence, churn visibility, and a renewal motion that actually scales,
+            I help you build the system and the execution rhythm that gets you there.
+          </p>
+
+          <ul class="hero-points">
+            <li><span class="check">✓</span> Renewal operating cadence, stages, and forecasting model that your exec team believes</li>
+            <li><span class="check">✓</span> Health scoring and risk playbooks that surface churn early and drive save outcomes</li>
+            <li><span class="check">✓</span> Scaled success motion, automation, and customer journeys that protect retention</li>
+          </ul>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Book a strategy call</a>
+            <a class="btn btn-ghost" href="#tools">View CS tools</a>
+          </div>
+
+          <div class="micro">
+            Built for SaaS leaders, Heads of Customer Success, RevOps, and founders who want predictable retention.
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Executive outcomes">
+          <h2>Executive outcomes</h2>
+          <p>Practical systems, measurable results, and a premium customer experience.</p>
+
+          <div class="statgrid">
+            <div class="stat">
+              <strong>Renewal visibility</strong>
+              <span>Standard stages, renewal calendar, weekly rhythm, and crisp accountability.</span>
+            </div>
+            <div class="stat">
+              <strong>Risk control</strong>
+              <span>Clear health model, risk definitions, save plays, and escalation pathways.</span>
+            </div>
+            <div class="stat">
+              <strong>Expansion readiness</strong>
+              <span>Outcome mapping and exec narrative that sets up growth conversations.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h3>Consulting services</h3>
+      <p class="sub">
+        Premium, operator led consulting for teams that want results, not busy work.
+        Start with one lane, then build toward a complete renewal system.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="label">Flagship</div>
+          <h4>Renewal Operating System</h4>
+          <p>Turn renewals into a disciplined motion with forecasting that leadership trusts.</p>
+          <ul class="bullets">
+            <li>Renewal stages, cadence, and accountability</li>
+            <li>Forecast model, pipeline hygiene, renewal calendar</li>
+            <li>Exec dashboards and renewal reporting</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label">Retention</div>
+          <h4>Health Scoring and Risk Playbooks</h4>
+          <p>Surface churn risk earlier and execute save plays consistently across the team.</p>
+          <ul class="bullets">
+            <li>Health model, signals, thresholds, and segmentation</li>
+            <li>Risk plays, talk tracks, and escalation process</li>
+            <li>Customer success plans and QBR structure</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label">Scale</div>
+          <h4>Scaled Success and Automation</h4>
+          <p>Protect retention at scale, improve adoption, and keep a premium customer experience.</p>
+          <ul class="bullets">
+            <li>Lifecycle journeys and adoption milestones</li>
+            <li>Automation strategy and tooling alignment</li>
+            <li>Low touch renewal support and play design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <h3>Customer Success tools</h3>
+      <p class="sub">
+        For leaders building their stack, I provide ready to implement tools you can use immediately.
+        These are designed to elevate execution and give you executive clarity.
+      </p>
+
+      <div class="two">
+        <div class="box">
+          <h4>Renewal Forecasting Pack</h4>
+          <p>
+            Renewal stages, forecast template, renewal calendar, and weekly cadence guide.
+            Built to create consistency and reduce last minute surprises.
+          </p>
+        </div>
+        <div class="box">
+          <h4>Health Scoring Model</h4>
+          <p>
+            A practical health score framework with signals, thresholds, and risk definitions.
+            Includes play triggers and how to operationalize it with your team.
+          </p>
+        </div>
+        <div class="box">
+          <h4>Executive QBR Narrative</h4>
+          <p>
+            A QBR outline that executives actually read, structured around outcomes, risk, adoption, and next steps.
+          </p>
+        </div>
+        <div class="box">
+          <h4>Scaled Success Journeys</h4>
+          <p>
+            Segmentation guidance plus lifecycle touch points to keep customers engaged without burning out your team.
+          </p>
+        </div>
+      </div>
+
+      <p class="micro muted">
+        Want these delivered as downloadable templates. Reply with your preferred format, Google Docs, PowerPoint, or Excel.
+      </p>
+    </section>
+
+    <section id="engagements" class="section">
+      <h3>Engagements</h3>
+      <p class="sub">
+        Choose the level of support that fits your timeline and maturity. Each option is designed to produce momentum fast.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="label">One time</div>
+          <h4>Executive Strategy Session</h4>
+          <p>One focused session to diagnose your renewal motion and walk away with a clear plan.</p>
+          <ul class="bullets">
+            <li>Renewal maturity assessment</li>
+            <li>Top risks and quick wins</li>
+            <li>30 day action plan</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label">Sprint</div>
+          <h4>30 Day Implementation Sprint</h4>
+          <p>Build the operating system and launch the cadence with your team.</p>
+          <ul class="bullets">
+            <li>Forecasting model and reporting</li>
+            <li>Health scoring and risk plays</li>
+            <li>Team enablement and rollout</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label">Retainer</div>
+          <h4>Fractional Head of CS</h4>
+          <p>Ongoing leadership and execution support for retention, expansion, and customer experience.</p>
+          <ul class="bullets">
+            <li>Operating cadence and coaching</li>
+            <li>Tooling, dashboards, and automation</li>
+            <li>Renewal pipeline ownership</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="cta">
+        <div>
+          <h3>Book a strategy call</h3>
+          <p>
+            Tell me what you are trying to improve, churn, forecast accuracy, adoption, or scale,
+            and I will respond within one business day.
+          </p>
+          <p class="micro muted">
+            If you already use Calendly, send me your link and I will swap the button in one minute.
+          </p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="mailto:renewalstrategyconsulting@gmail.com?subject=Strategy%20Call%20Request">Email to book</a>
+          <div class="micro fine">Replace this email with your business email when ready.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div>© 2026 Renewal Strategy Consulting</div>
+        <div class="fine">Corporate luxury delivery, clear outcomes, measurable execution.</div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
