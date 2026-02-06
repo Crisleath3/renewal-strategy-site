@@ -515,3 +515,65 @@ h1{
   }
   .brand .tag{display:none;}
 }
+/* Mobile first fixes, paste at very end of styles.css */
+
+/* Prevent horizontal scroll */
+html, body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+/* Header wraps cleanly and stays readable */
+.header-inner{
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+}
+
+/* Brand can shrink without breaking layout */
+.brand{
+  min-width:0;
+}
+.brand img{
+  height:30px;
+}
+.brand .tag{
+  font-size:11px;
+  letter-spacing:.06em;
+}
+
+/* Navigation becomes a clean row that wraps */
+.nav{
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  gap:6px;
+}
+
+/* CTA buttons do not push everything off screen */
+.cta{
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  gap:10px;
+}
+
+/* Make buttons comfortable on mobile */
+.btn{
+  padding:11px 14px;
+  border-radius:14px;
+}
+
+/* Hero grid stacks and pads correctly */
+.hero{
+  padding:44px 0 34px;
+}
+.hero-grid{
+  grid-template-columns:1fr;
+}
+.hero-left{
+  padding:28px 22px 22px;
+}
+.hero-right{
+  border-left:0;
+  border-top:1px solid var
+
