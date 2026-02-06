@@ -1,26 +1,86 @@
-/* Mobile first fixes, clean and non conflicting */
-
-/* Prevent horizontal scroll */
-html, body{
-  width:100%;
-  overflow-x:hidden;
+/* Global reset and layout safety */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
 }
 
-/* Allow flex children to shrink without overflow */
+html{
+  -webkit-text-size-adjust:100%;
+}
+
+html, body{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  overflow-x:clip;
+}
+
+@supports not (overflow-x: clip){
+  html, body{
+    overflow-x:hidden;
+  }
+}
+
+/* Media never overflows */
+img, video, iframe, svg{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Text never forces overflow */
+h1, h2, h3, h4, h5, h6, p, li, a{
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+/* Flex and grid children can shrink */
 .container,
+.header,
 .header-inner,
+.brand,
+.nav,
+.cta,
+.hero,
 .hero-card,
 .hero-grid,
+.hero-grid > *,
 .hero-left,
 .hero-right,
 .panel,
+.statgrid,
+.statgrid > *,
 .founder,
-.founder *{
+.founder > *,
+.outcomes-grid,
+.outcomes-grid > *,
+#services .split,
+#services .split > *{
   min-width:0;
 }
 
-/* Header wraps cleanly on smaller screens */
+/* Optional, prevents tiny 100vw scrollbar issues if any section uses vw */
+.fullwidth,
+.section,
+.hero,
+header,
+main,
+footer{
+  width:100%;
+  max-width:100%;
+}
+
+/* Header mobile behavior */
 @media (max-width: 980px){
+  .header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(10px);
+  }
+
   .header-inner{
     flex-wrap:wrap;
     align-items:center;
@@ -30,10 +90,14 @@ html, body{
 
   .brand{
     min-width:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
   }
 
   .brand img{
     height:30px;
+    width:auto;
   }
 
   .brand .tag{
@@ -41,14 +105,15 @@ html, body{
   }
 
   .nav{
+    width:100%;
     flex-wrap:wrap;
     justify-content:flex-start;
-    gap:6px;
-    width:100%;
+    gap:8px;
   }
 
   .cta{
     width:100%;
+    display:flex;
     flex-wrap:wrap;
     justify-content:flex-start;
     gap:10px;
@@ -63,18 +128,23 @@ html, body{
     position:fixed;
     left:16px;
     right:16px;
-    top:72px;
+    top:90px;
     min-width:unset;
+    max-height:calc(100vh - 120px);
+    overflow:auto;
+    padding-bottom:env(safe-area-inset-bottom);
+    z-index:1000;
   }
 }
 
-/* Hero stacks and breathes on mobile */
+/* Hero layout */
 @media (max-width: 980px){
   .hero{
     padding:44px 0 34px;
   }
 
   .hero-grid{
+    display:grid;
     grid-template-columns:1fr;
   }
 
@@ -89,7 +159,9 @@ html, body{
   }
 
   .statgrid{
+    display:grid;
     grid-template-columns:1fr;
+    gap:12px;
   }
 }
 
@@ -101,34 +173,48 @@ html, body{
 
   .lead{
     font-size:16px;
+    line-height:1.5;
   }
 }
 
-/* Services, keep three across on desktop, one column on smaller screens */
+/* Services layout */
 @media (min-width: 1101px){
   #services .split{
+    display:grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
   }
 }
 
 @media (max-width: 1100px){
   #services .split{
+    display:grid;
     grid-template-columns:1fr;
+    gap:14px;
   }
 }
 
-/* Leadership, ensure clean stacking */
+/* Leadership and outcomes */
 @media (max-width: 980px){
   .founder{
+    display:grid;
     grid-template-columns:1fr;
     gap:18px;
   }
 
   .founder-photo{
+    width:100%;
     max-width:100%;
   }
 
   .outcomes-grid{
+    display:grid;
     grid-template-columns:1fr;
+    gap:14px;
   }
 }
+
+/* Debug helper, turn on if you still have weird overflow */
+/*
+*{ outline:1px solid rgba(255,0,0,.25); }
+*/
