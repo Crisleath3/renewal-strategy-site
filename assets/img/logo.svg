@@ -1,0 +1,15 @@
+<svg width="760" height="76" viewBox="0 0 760 76" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Renewal Strategy Consulting">
+  <g fill="none" fill-rule="evenodd">
+    <rect x="0" y="22" width="6" height="32" fill="#1A1A1A"/>
+    <rect x="12" y="16" width="6" height="38" fill="#1A1A1A"/>
+    <rect x="24" y="12" width="6" height="42" fill="#1A1A1A"/>
+    <rect x="36" y="16" width="6" height="38" fill="#1A1A1A"/>
+    <rect x="48" y="22" width="6" height="32" fill="#1A1A1A"/>
+    <text x="78" y="46" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.02em" fill="#1A1A1A">
+      RENEWAL STRATEGY CONSULTING
+    </text>
+    <text x="78" y="66" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0.22em" fill="#3A2F2A">
+      CUSTOMER SUCCESS CONSULTING
+    </text>
+  </g>
+</svg>
